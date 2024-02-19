@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <title>Exemplo com html2canvas</title>
+  </head>
+  <body>
+    <!-- Conteúdo principal -->
+    <div class="conteudo">
+      <!-- Quadrado com a imagem -->
+      <div class="quadrado">
+        <img src="imagem.jpg" alt="Imagem de Exemplo" />
+      </div>
+
+      <!-- Retângulo laranja -->
+      <div class="retangulo-laranja"></div>
+
+      <!-- Texto -->
+      <p>Clique abaixo.</p>
+
+      <!-- Botão para baixar a imagem -->
+      <button onclick="baixarImagem()">Baixar Imagem</button>
+
+      <!-- Elemento de vídeo oculto para reproduzir o gif em formato mp4 -->
+      <video id="video" style="display: none" autoplay loop>
+        <source
+          src="https://va.media.tumblr.com/tumblr_rj8vo6R1Sp1y8elyf_720.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta o elemento de vídeo.
+      </video>
+    </div>
+
+    <script>
+      function baixarImagem() {
+        // Reproduz o vídeo mp4
+        document.getElementById("video").play();
+
+        // Captura a área de conteúdo
+        html2canvas(document.querySelector(".conteudo")).then(
+          function (canvas) {
+            // Cria um link para baixar a imagem
+            var link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = "imagem.png";
+            // Simula o clique no link
+            link.click();
+
+            // Pausa o vídeo após a captura da imagem
+            document.getElementById("video").pause();
+          },
+        );
+      }
+    </script>
+  </body>
+</html>
