@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Imóvel Guide</title>
+  </head>
+  <body>
+    <!-- Menu Desktop -->
+    <nav class="menu-desktop">
+      <!-- Adicione seus itens de menu aqui -->
+      <button id="verTelefoneBtn">Ver Telefone</button>
+    </nav>
+
+    <!-- Menu Mobile (Hamburguer) -->
+    <div class="menu-mobile">
+      <div class="hamburguer-icon" id="hamburguerIcon">&#9776;</div>
+      <nav class="mobile-nav" id="mobileNav">
+        <!-- Adicione seus itens de menu aqui -->
+        <button id="verTelefoneBtnMobile">Ver Telefone</button>
+      </nav>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="conteudo">
+      <div id="telefoneFormatado" class="telefone"></div>
+
+      <!-- Máscaras em tempo real -->
+      <label for="cpf">CPF:</label>
+      <input
+        type="text"
+        id="cpf"
+        oninput="aplicarMascara(this, '###.###.###-##')"
+        maxlength="14"
+      />
+
+      <label for="telefone">Telefone:</label>
+      <input
+        type="text"
+        id="telefone"
+        oninput="aplicarMascara(this, '(##) ####-####')"
+        maxlength="15"
+      />
+
+      <!-- Cálculo de regra de três -->
+      <label for="valor1">Valor 1:</label>
+      <input type="text" id="valor1" placeholder="Digite o valor 1" />
+
+      <label for="valor2">Valor 2:</label>
+      <input type="text" id="valor2" placeholder="Digite o valor 2" />
+
+      <button id="calcularBtn" onclick="calcularRegraDeTres()">Calcular</button>
+
+      <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
