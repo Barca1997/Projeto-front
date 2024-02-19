@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Flexbox Froggy com Cálculo</title>
+  </head>
+  <body>
+    <!-- Conteúdo principal -->
+    <div class="conteudo">
+      <!-- Inputs para os valores -->
+      <label for="valor1">Valor 1:</label>
+      <input type="text" id="valor1" oninput="calcular()" />
+
+      <label for="valor2">Valor 2:</label>
+      <input type="text" id="valor2" oninput="calcular()" />
+
+      <!-- Botão para calcular -->
+      <button id="calcularBtn" onclick="calcular()">Calcular</button>
+
+      <!-- Resultado do cálculo -->
+      <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+/* Adicione estilos conforme necessário */
+
+/* Estilos do resultado do cálculo */
+.resultado {
+  background-color: orange;
+  padding: 10px;
+  color: white;
+  margin-top: 20px;
+}
+// Função para calcular e exibir o resultado
+function calcular() {
+  var valor1 = parseFloat(document.getElementById("valor1").value) || 0;
+  var valor2 = parseFloat(document.getElementById("valor2").value) || 0;
+
+  // Faça o cálculo desejado
+  var resultado = valor1 + valor2;
+
+  // Exibe o resultado no retângulo laranja
+  document.getElementById("resultado").innerText = `Resultado: ${resultado}`;
+}
